@@ -19,16 +19,12 @@ const AdminDashboard = () => {
 					orders: [], // Initialize orders array
 				}));
 
-				console.log("Fetched Cattle Posts:", posts);
-
 				// Fetch orders
 				const ordersSnapshot = await getDocs(collection(db, "orders"));
 				const orders = ordersSnapshot.docs.map((doc) => ({
 					id: doc.id,
 					...doc.data(),
 				}));
-
-				console.log("Fetched Orders:", orders);
 
 				// Organize orders by postId
 				const ordersByPost = orders.reduce((acc, order) => {
@@ -39,23 +35,30 @@ const AdminDashboard = () => {
 					return acc;
 				}, {});
 
-				console.log("Orders by Post:", ordersByPost);
-
 				// Add orders to posts
 				const postsWithOrders = posts.map((post) => {
-					const postOrders = ordersByPost[post.id] || [];
+					let postOrders = ordersByPost[post.id] || [];
+
+					// Sort orders by location name
+					postOrders = postOrders.sort((a, b) => {
+						const locationA = a.location?.toUpperCase() || ""; // handle undefined locations
+						const locationB = b.location?.toUpperCase() || "";
+						if (locationA < locationB) return -1;
+						if (locationA > locationB) return 1;
+						return 0;
+					});
+
 					const portionCount = postOrders.reduce(
 						(sum, order) => sum + parseInt(order.portion || 0),
 						0
 					);
+
 					return {
 						...post,
 						orders: postOrders,
 						portionCount, // Add portion count to post
 					};
 				});
-
-				console.log("Posts with Orders and Portion Count:", postsWithOrders);
 
 				setCattlePosts(postsWithOrders);
 				setLoading(false);

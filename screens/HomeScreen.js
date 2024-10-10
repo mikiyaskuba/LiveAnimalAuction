@@ -1089,7 +1089,7 @@ const HomeScreen = () => {
 							style={styles.input}
 							placeholder="Phone Number"
 							value={userPhoneNumber}
-							onChangeText={(numeric) => setUserPhoneNumber(text)}
+							onChangeText={(numeric) => setUserPhoneNumber(Text)}
 						/>
 						<TouchableOpacity
 							style={styles.confirmButton}

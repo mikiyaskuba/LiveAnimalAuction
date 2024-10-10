@@ -1,34 +1,33 @@
 {
-	"expo": {
-		"name": "kercha",
-		"slug": "CattelAuctionApp",
-		"version": "1.0.0",
-		"orientation": "portrait",
-		"icon": "./assets/icon1.png",
-		"userInterfaceStyle": "light",
-		"splash": {
-			"image": "./assets/splash1.jpeg",
-			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
-		},
-		"ios": {
-			"supportsTablet": true
-		},
-		"android": {
-			"versionCode": 1, // Add this line
-			"adaptiveIcon": {
-				"foregroundImage": "./assets/adaptive-icon.png",
-				"backgroundColor": "#ffffff"
-			},
-			"package": "com.dream_big.kerchApp"
-		},
-		"web": {
-			"favicon": "./assets/favicon.png"
-		},
-		"extra": {
-			"eas": {
-				"projectId": "70a0f4e6-2a3d-478b-8e43-c7645b1489f4"
-			}
-		}
-	}
+  "expo": {
+    "name": "kercha",
+    "slug": "CattelAuctionApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+  "splash": {
+  "image": "./assets/splash1.png",  // Ensure this points to a .png file
+  "resizeMode": "contain",
+  "backgroundColor": "#ffffff"
+},
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.mikokuba.CattelAuctionApp"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "388a7e10-9d43-40c4-9dda-bae52a0c3fdd"
+      }
+    }
+  }
 }
